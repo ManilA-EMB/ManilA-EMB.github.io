@@ -1,45 +1,1673 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="uk">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Портфоліо комп'ютерної вишивки та оцифрування дизайнів.">
-<title>Портфоліо вишивки</title>
-<style>
-:root{--bg:#f7f7f5;--card:#fff;--text:#171717;--muted:#707070;--line:#e5e5e2;--max:1280px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}a{text-decoration:none;color:inherit}img{display:block;max-width:100%}.wrap{width:min(calc(100% - 32px),var(--max));margin:auto}
-header{position:sticky;top:0;z-index:10;background:#f7f7f5ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:74px;display:flex;align-items:center;justify-content:space-between}.logo img{max-width:180px;max-height:50px}.logo-fallback{font-weight:800;letter-spacing:.12em}nav{display:flex;gap:28px;font-size:14px;font-weight:700}nav a{opacity:.7}nav a:hover{opacity:1}
-.hero{padding:90px 0 75px;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:end}.eyebrow{margin:0 0 16px;color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em}h1{margin:0;font-size:clamp(44px,6vw,82px);line-height:.98;letter-spacing:-.045em} .hero p:last-child{max-width:460px;color:var(--muted);font-size:17px;line-height:1.6}
-section{padding:70px 0}.portfolio-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}h2{font-size:34px;letter-spacing:-.03em;margin:0}.filters{display:flex;flex-wrap:wrap;gap:7px}.filter{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 15px;cursor:pointer}.filter.active,.filter:hover{background:#171717;color:#fff;border-color:#171717}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.work{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:.2s}.work:hover{transform:translateY(-3px);box-shadow:0 12px 30px #00000012}.photo{aspect-ratio:4/3;background:#e9e9e6;display:grid;place-items:center;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.placeholder{color:#999;text-align:center;font-size:13px}.info{padding:16px 18px 18px}.info h3{font-size:16px;margin:0 0 5px}.info p{font-size:13px;color:var(--muted);margin:0}
-.about{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:70px}.about p{color:var(--muted);font-size:17px;line-height:1.7;max-width:600px}.contact{background:#171717;color:#fff;border-radius:14px;padding:38px}.contact h2{margin-bottom:12px}.contact p{color:#bbb;max-width:600px}.buttons{display:flex;flex-wrap:wrap;gap:10px}.buttons a{background:#fff;color:#171717;border-radius:999px;padding:11px 16px;font-weight:700;font-size:14px}footer{border-top:1px solid var(--line);padding:30px 0 45px;color:var(--muted);font-size:13px}
-.modal{position:fixed;inset:0;background:#000b;z-index:50;display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal-box{width:min(1050px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:16px;position:relative}.close{position:absolute;right:12px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:#000b;color:#fff;font-size:25px;cursor:pointer}.modal-grid{display:grid;grid-template-columns:1.15fr .85fr}.modal-photo{min-height:480px;background:#eee;display:grid;place-items:center}.modal-photo img{width:100%;height:100%;max-height:75vh;object-fit:contain}.modal-info{padding:42px 34px}.modal-info p{color:var(--muted);line-height:1.6}.details{margin-top:28px;border-top:1px solid var(--line)}.detail{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}.detail span{color:var(--muted)}
-@media(max-width:900px){.hero,.about,.modal-grid{grid-template-columns:1fr}.hero{padding-top:60px;gap:25px}.gallery{grid-template-columns:repeat(2,1fr)}.modal-photo{min-height:300px}}@media(max-width:600px){.wrap{width:calc(100% - 24px)}.nav{height:65px}nav{gap:14px;font-size:12px}.logo img{max-width:125px}.hero{padding:55px 0}.gallery{grid-template-columns:1fr}.portfolio-head{display:block}.portfolio-head h2{margin-bottom:18px}section{padding:55px 0}.contact{padding:28px 22px}}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta
+        name="description"
+        content="Портфоліо комп'ютерної вишивки та оцифрування дизайнів."
+    >
+
+    <title>Портфоліо вишивки</title>
+
+
+    <!-- =========================================================
+         CSS — СТИЛІ САЙТУ
+         ========================================================= -->
+
+    <style>
+
+        /* =====================================================
+           1. ОСНОВНІ НАЛАШТУВАННЯ
+           ===================================================== */
+
+        :root {
+            --bg: #f7f7f5;
+            --card: #ffffff;
+            --text: #171717;
+            --muted: #707070;
+            --line: #e5e5e2;
+
+            --max-width: 1280px;
+        }
+
+
+        /* Скидання стандартних стилів браузера */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        /* Основний контейнер сторінки */
+
+        .wrap {
+            width: min(
+                calc(100% - 32px),
+                var(--max-width)
+            );
+
+            margin: 0 auto;
+        }
+
+
+        /* =====================================================
+           2. ШАПКА САЙТУ
+           ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+
+            z-index: 10;
+
+            background: #f7f7f5ee;
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid var(--line);
+        }
+
+        .nav {
+            height: 74px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* Логотип */
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 180px;
+            max-height: 50px;
+
+            object-fit: contain;
+        }
+
+
+        /* Якщо логотип не знайдений */
+
+        .logo-fallback {
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+
+        /* Навігація */
+
+        nav {
+            display: flex;
+            gap: 28px;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        nav a {
+            opacity: 0.7;
+
+            transition:
+                opacity 0.2s ease;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+
+        /* =====================================================
+           3. ГОЛОВНИЙ ЕКРАН
+           ===================================================== */
+
+        .hero {
+            padding: 90px 0 75px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.15fr 0.85fr;
+
+            gap: 60px;
+
+            align-items: end;
+        }
+
+
+        /* Маленький напис над заголовком */
+
+        .eyebrow {
+            margin: 0 0 16px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.14em;
+        }
+
+
+        /* Головний заголовок */
+
+        h1 {
+            margin: 0;
+
+            font-size:
+                clamp(44px, 6vw, 82px);
+
+            line-height: 0.98;
+
+            letter-spacing: -0.045em;
+        }
+
+
+        /* Опис праворуч від заголовка */
+
+        .hero-description {
+            max-width: 460px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           4. ЗАГАЛЬНІ СЕКЦІЇ
+           ===================================================== */
+
+        section {
+            padding: 70px 0;
+        }
+
+        h2 {
+            margin: 0;
+
+            font-size: 34px;
+
+            letter-spacing: -0.03em;
+        }
+
+
+        /* =====================================================
+           5. ПОРТФОЛІО
+           ===================================================== */
+
+        .portfolio-head {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: end;
+
+            gap: 20px;
+
+            margin-bottom: 28px;
+        }
+
+
+        /* Кнопки категорій */
+
+        .filters {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+        .filter {
+            border:
+                1px solid var(--line);
+
+            background: #ffffff;
+
+            border-radius: 999px;
+
+            padding:
+                9px 15px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+            font-size: 14px;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .filter:hover,
+        .filter.active {
+            background: #171717;
+
+            color: #ffffff;
+
+            border-color: #171717;
+        }
+
+
+        /* =====================================================
+           6. СІТКА РОБІТ
+           ===================================================== */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        /* Одна картка роботи */
+
+        .work {
+            background: var(--card);
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .work:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                #00000012;
+        }
+
+
+        /* Фото роботи */
+
+        .photo {
+            aspect-ratio: 4 / 3;
+
+            background: #e9e9e6;
+
+            display: grid;
+
+            place-items: center;
+
+            overflow: hidden;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* Текст, якщо фото ще немає */
+
+        .placeholder {
+            color: #999999;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        /* Інформація під фото */
+
+        .info {
+            padding:
+                16px 18px 18px;
+        }
+
+        .info h3 {
+            margin: 0 0 5px;
+
+            font-size: 16px;
+        }
+
+        .info p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           7. БЛОК "ПРО НАС"
+           ===================================================== */
+
+        .about {
+            border-top:
+                1px solid var(--line);
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+        }
+
+        .about p {
+            max-width: 600px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           8. КОНТАКТИ
+           ===================================================== */
+
+        .contact {
+            padding: 38px;
+
+            background: #171717;
+
+            color: #ffffff;
+
+            border-radius: 14px;
+        }
+
+        .contact h2 {
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            max-width: 600px;
+
+            color: #bbbbbb;
+
+            line-height: 1.6;
+        }
+
+
+        /* Кнопки контактів */
+
+        .buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .buttons a {
+            padding:
+                11px 16px;
+
+            background: #ffffff;
+
+            color: #171717;
+
+            border-radius: 999px;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           9. FOOTER
+           ===================================================== */
+
+        footer {
+            padding:
+                30px 0 45px;
+
+            border-top:
+                1px solid var(--line);
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           10. МОДАЛЬНЕ ВІКНО РОБОТИ
+           ===================================================== */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 50;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: #000000bb;
+        }
+
+
+        /* Відкрите модальне вікно */
+
+        .modal.open {
+            display: flex;
+        }
+
+
+        /* Біле вікно всередині */
+
+        .modal-box {
+            width:
+                min(1050px, 100%);
+
+            max-height: 92vh;
+
+            overflow: auto;
+
+            position: relative;
+
+            background: #ffffff;
+
+            border-radius: 16px;
+        }
+
+
+        /* Кнопка закриття */
+
+        .close {
+            position: absolute;
+
+            right: 12px;
+            top: 12px;
+
+            width: 38px;
+            height: 38px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: #000000bb;
+
+            color: #ffffff;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 2;
+        }
+
+
+        /* Вміст модального вікна */
+
+        .modal-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.15fr 0.85fr;
+        }
+
+
+        /* Велике фото */
+
+        .modal-photo {
+            min-height: 480px;
+
+            background: #eeeeee;
+
+            display: grid;
+
+            place-items: center;
+        }
+
+        .modal-photo img {
+            width: 100%;
+            height: 100%;
+
+            max-height: 75vh;
+
+            object-fit: contain;
+        }
+
+
+        /* Інформація про роботу */
+
+        .modal-info {
+            padding:
+                42px 34px;
+        }
+
+        .modal-info p {
+            color: var(--muted);
+
+            line-height: 1.6;
+        }
+
+
+        /* Таблиця параметрів */
+
+        .details {
+            margin-top: 28px;
+
+            border-top:
+                1px solid var(--line);
+        }
+
+        .detail {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 12px 0;
+
+            border-bottom:
+                1px solid var(--line);
+
+            font-size: 14px;
+        }
+
+        .detail span {
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           11. АДАПТАЦІЯ — ПЛАНШЕТ
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .hero,
+            .about,
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 60px;
+
+                gap: 25px;
+            }
+
+            .gallery {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .modal-photo {
+                min-height: 300px;
+            }
+        }
+
+
+        /* =====================================================
+           12. АДАПТАЦІЯ — ТЕЛЕФОН
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .wrap {
+                width:
+                    calc(100% - 24px);
+            }
+
+            .nav {
+                height: 65px;
+            }
+
+            nav {
+                gap: 14px;
+
+                font-size: 12px;
+            }
+
+            .logo img {
+                max-width: 125px;
+            }
+
+            .hero {
+                padding:
+                    55px 0;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-head {
+                display: block;
+            }
+
+            .portfolio-head h2 {
+                margin-bottom: 18px;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .contact {
+                padding:
+                    28px 22px;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-<header><div class="wrap nav">
-<a class="logo" href="#top"><img src="assets/images/logo.png" alt="Логотип" onerror="this.style.display='none';document.querySelector('.logo-fallback').style.display='block'"><span class="logo-fallback" style="display:none">ВИШИВКА</span></a>
-<nav><a href="#portfolio">Портфоліо</a><a href="#about">Про нас</a><a href="#contacts">Контакти</a></nav>
-</div></header>
-<main id="top">
-<section class="wrap hero"><div><p class="eyebrow">Комп'ютерна вишивка</p><h1>Дизайн, який стає вишивкою.</h1></div><p>Портфоліо готових робіт та дизайнів для машинної вишивки — від оцифрування логотипу до готового виробу.</p></section>
-<section class="wrap" id="portfolio"><div class="portfolio-head"><h2>Наші роботи</h2><div class="filters"><button class="filter active" data-filter="all">Всі</button><button class="filter" data-filter="logo">Логотипи</button><button class="filter" data-filter="text">Написи</button><button class="filter" data-filter="clothes">Одяг</button><button class="filter" data-filter="patch">Шеврони</button></div></div>
-<div class="gallery">
-<!-- Скопіюй цей блок для кожної нової роботи -->
-<article class="work" data-category="logo" data-title="Приклад логотипу" data-description="Оцифрування логотипу для машинної вишивки." data-size="85 × 65 мм" data-stitches="12 327" data-colors="4" data-image="assets/images/work-01.jpg"><div class="photo"><img src="assets/images/work-01.jpg" alt="Вишивка" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="placeholder" style="display:none">Додай<br>work-01.jpg</div></div><div class="info"><h3>Приклад логотипу</h3><p>85 × 65 мм · 12 327 стібків</p></div></article>
-<article class="work" data-category="clothes" data-title="Вишивка на одязі" data-description="Готова машинна вишивка на текстилі." data-size="100 × 80 мм" data-stitches="18 540" data-colors="5" data-image="assets/images/work-02.jpg"><div class="photo"><img src="assets/images/work-02.jpg" alt="Вишивка на одязі" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="placeholder" style="display:none">Додай<br>work-02.jpg</div></div><div class="info"><h3>Вишивка на одязі</h3><p>100 × 80 мм · 18 540 стібків</p></div></article>
-<article class="work" data-category="patch" data-title="Шеврон" data-description="Дизайн шеврона для машинної вишивки." data-size="90 × 70 мм" data-stitches="15 210" data-colors="6" data-image="assets/images/work-03.jpg"><div class="photo"><img src="assets/images/work-03.jpg" alt="Шеврон" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="placeholder" style="display:none">Додай<br>work-03.jpg</div></div><div class="info"><h3>Шеврон</h3><p>90 × 70 мм · 15 210 стібків</p></div></article>
-<article class="work" data-category="text" data-title="Вишитий напис" data-description="Оцифрування напису для машинної вишивки." data-size="180 × 35 мм" data-stitches="9 840" data-colors="2" data-image="assets/images/work-04.jpg"><div class="photo"><img src="assets/images/work-04.jpg" alt="Вишитий напис" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="placeholder" style="display:none">Додай<br>work-04.jpg</div></div><div class="info"><h3>Вишитий напис</h3><p>180 × 35 мм · 9 840 стібків</p></div></article>
-</div></section>
-<section class="wrap about" id="about"><div><p class="eyebrow">Про нас</p><h2>Вишивка від дизайну до готового виробу.</h2></div><div><p>Тут буде коротка інформація про майстерню, досвід, послуги та оцифрування дизайнів для машинної вишивки.</p></div></section>
-<section class="wrap" id="contacts"><div class="contact"><p class="eyebrow" style="color:#aaa">Замовлення</p><h2>Є дизайн? Давайте перетворимо його на вишивку.</h2><p>Тут будуть ваші контакти та способи зв'язку.</p><div class="buttons"><a href="#">Telegram</a><a href="#">Instagram</a><a href="tel:+380000000000">Телефон</a></div></div></section>
-</main><footer><div class="wrap">© 2026 · Портфоліо комп'ютерної вишивки</div></footer>
-<div class="modal" id="modal"><div class="modal-box"><button class="close">×</button><div class="modal-grid"><div class="modal-photo"><img id="mimg" src="" alt=""></div><div class="modal-info"><p class="eyebrow">Робота</p><h2 id="mtitle"></h2><p id="mdesc"></p><div class="details"><div class="detail"><span>Розмір</span><strong id="msize"></strong></div><div class="detail"><span>Стібки</span><strong id="mstitches"></strong></div><div class="detail"><span>Кольори</span><strong id="mcolors"></strong></div></div></div></div></div></div>
-<script>
-const works=[...document.querySelectorAll('.work')], modal=document.querySelector('#modal');
-document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');works.forEach(w=>w.style.display=b.dataset.filter==='all'||w.dataset.filter===b.dataset.category?'':'none')});
-works.forEach(w=>w.onclick=()=>{mimg.src=w.dataset.image;mimg.alt=w.dataset.title;mtitle.textContent=w.dataset.title;mdesc.textContent=w.dataset.description;msize.textContent=w.dataset.size;mstitches.textContent=w.dataset.stitches;mcolors.textContent=w.dataset.colors;modal.classList.add('open');document.body.style.overflow='hidden'});
-function close(){modal.classList.remove('open');document.body.style.overflow=''}document.querySelector('.close').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.onkeydown=e=>{if(e.key==='Escape')close()};
-</script>
-</body></html>
+
+
+    <!-- =========================================================
+         HEADER — ШАПКА САЙТУ
+         ========================================================= -->
+
+    <header>
+
+        <div class="wrap nav">
+
+
+            <!-- ЛОГОТИП -->
+
+            <a
+                class="logo"
+                href="#top"
+                aria-label="На головну"
+            >
+
+                <!--
+                    Логотип знаходиться тут:
+
+                    assets/images/Logo.PNG
+
+                    Якщо перейменуєш файл у logo.png,
+                    відповідно зміни шлях нижче.
+                -->
+
+                <img
+                    src="assets/images/Logo.PNG"
+                    alt="Логотип"
+                    onerror="
+                        this.style.display='none';
+                        document.querySelector('.logo-fallback').style.display='block';
+                    "
+                >
+
+
+                <!-- Запасний напис, якщо логотип не знайдений -->
+
+                <span
+                    class="logo-fallback"
+                    style="display: none;"
+                >
+                    ВИШИВКА
+                </span>
+
+            </a>
+
+
+            <!-- НАВІГАЦІЯ -->
+
+            <nav>
+
+                <a href="#portfolio">
+                    Портфоліо
+                </a>
+
+                <a href="#about">
+                    Про нас
+                </a>
+
+                <a href="#contacts">
+                    Контакти
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         ОСНОВНИЙ КОНТЕНТ
+         ========================================================= -->
+
+    <main id="top">
+
+
+        <!-- =====================================================
+             HERO — ГОЛОВНИЙ ЕКРАН
+             ===================================================== -->
+
+        <section class="wrap hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    Комп'ютерна вишивка
+                </p>
+
+                <h1>
+                    Дизайн, який стає вишивкою.
+                </h1>
+
+            </div>
+
+
+            <p class="hero-description">
+
+                Портфоліо готових робіт та дизайнів
+                для машинної вишивки —
+                від оцифрування логотипу
+                до готового виробу.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ПОРТФОЛІО
+             ===================================================== -->
+
+        <section
+            class="wrap"
+            id="portfolio"
+        >
+
+
+            <!-- Заголовок портфоліо + фільтри -->
+
+            <div class="portfolio-head">
+
+                <h2>
+                    Наші роботи
+                </h2>
+
+
+                <!-- ФІЛЬТРИ -->
+
+                <div class="filters">
+
+                    <button
+                        class="filter active"
+                        data-filter="all"
+                    >
+                        Всі
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="logo"
+                    >
+                        Логотипи
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="text"
+                    >
+                        Написи
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="clothes"
+                    >
+                        Одяг
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="patch"
+                    >
+                        Шеврони
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ГАЛЕРЕЯ РОБІТ
+                 ================================================= -->
+
+            <div class="gallery">
+
+
+                <!-- =================================================
+                     РОБОТА №1
+                     ================================================= -->
+
+                <!--
+                    Щоб додати нову роботу:
+
+                    1. Скопіюй весь блок <article>
+                    2. Встав нижче
+                    3. Зміни параметри.
+
+                    data-category:
+                    logo
+                    text
+                    clothes
+                    patch
+
+                    data-title:
+                    Назва роботи
+
+                    data-description:
+                    Опис
+
+                    data-size:
+                    Розмір вишивки
+
+                    data-stitches:
+                    Кількість стібків
+
+                    data-colors:
+                    Кількість кольорів
+
+                    data-image:
+                    Шлях до фотографії
+                -->
+
+
+                <article
+                    class="work"
+
+                    data-category="logo"
+
+                    data-title="Приклад логотипу"
+
+                    data-description="
+                        Оцифрування логотипу
+                        для машинної вишивки.
+                    "
+
+                    data-size="85 × 65 мм"
+
+                    data-stitches="12 327"
+
+                    data-colors="4"
+
+                    data-image="assets/images/work-01.jpg"
+                >
+
+
+                    <!-- Фото -->
+
+                    <div class="photo">
+
+                        <img
+                            src="assets/images/work-01.jpg"
+                            alt="Приклад вишитого логотипу"
+
+                            onerror="
+                                this.style.display='none';
+                                this.nextElementSibling.style.display='block';
+                            "
+                        >
+
+                        <div
+                            class="placeholder"
+                            style="display: none;"
+                        >
+                            Додай<br>
+                            work-01.jpg
+                        </div>
+
+                    </div>
+
+
+                    <!-- Інформація -->
+
+                    <div class="info">
+
+                        <h3>
+                            Приклад логотипу
+                        </h3>
+
+                        <p>
+                            85 × 65 мм ·
+                            12 327 стібків
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     РОБОТА №2
+                     ================================================= -->
+
+                <article
+                    class="work"
+
+                    data-category="clothes"
+
+                    data-title="Вишивка на одязі"
+
+                    data-description="
+                        Готова машинна вишивка
+                        на текстилі.
+                    "
+
+                    data-size="100 × 80 мм"
+
+                    data-stitches="18 540"
+
+                    data-colors="5"
+
+                    data-image="assets/images/work-02.jpg"
+                >
+
+                    <div class="photo">
+
+                        <img
+                            src="assets/images/work-02.jpg"
+                            alt="Вишивка на одязі"
+
+                            onerror="
+                                this.style.display='none';
+                                this.nextElementSibling.style.display='block';
+                            "
+                        >
+
+                        <div
+                            class="placeholder"
+                            style="display: none;"
+                        >
+                            Додай<br>
+                            work-02.jpg
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <h3>
+                            Вишивка на одязі
+                        </h3>
+
+                        <p>
+                            100 × 80 мм ·
+                            18 540 стібків
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     РОБОТА №3
+                     ================================================= -->
+
+                <article
+                    class="work"
+
+                    data-category="patch"
+
+                    data-title="Шеврон"
+
+                    data-description="
+                        Дизайн шеврона
+                        для машинної вишивки.
+                    "
+
+                    data-size="90 × 70 мм"
+
+                    data-stitches="15 210"
+
+                    data-colors="6"
+
+                    data-image="assets/images/work-03.jpg"
+                >
+
+                    <div class="photo">
+
+                        <img
+                            src="assets/images/work-03.jpg"
+                            alt="Вишитий шеврон"
+
+                            onerror="
+                                this.style.display='none';
+                                this.nextElementSibling.style.display='block';
+                            "
+                        >
+
+                        <div
+                            class="placeholder"
+                            style="display: none;"
+                        >
+                            Додай<br>
+                            work-03.jpg
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <h3>
+                            Шеврон
+                        </h3>
+
+                        <p>
+                            90 × 70 мм ·
+                            15 210 стібків
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     РОБОТА №4
+                     ================================================= -->
+
+                <article
+                    class="work"
+
+                    data-category="text"
+
+                    data-title="Вишитий напис"
+
+                    data-description="
+                        Оцифрування напису
+                        для машинної вишивки.
+                    "
+
+                    data-size="180 × 35 мм"
+
+                    data-stitches="9 840"
+
+                    data-colors="2"
+
+                    data-image="assets/images/work-04.jpg"
+                >
+
+                    <div class="photo">
+
+                        <img
+                            src="assets/images/work-04.jpg"
+                            alt="Вишитий напис"
+
+                            onerror="
+                                this.style.display='none';
+                                this.nextElementSibling.style.display='block';
+                            "
+                        >
+
+                        <div
+                            class="placeholder"
+                            style="display: none;"
+                        >
+                            Додай<br>
+                            work-04.jpg
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <h3>
+                            Вишитий напис
+                        </h3>
+
+                        <p>
+                            180 × 35 мм ·
+                            9 840 стібків
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ПРО НАС
+             ===================================================== -->
+
+        <section
+            class="wrap about"
+            id="about"
+        >
+
+            <div>
+
+                <p class="eyebrow">
+                    Про нас
+                </p>
+
+                <h2>
+                    Вишивка від дизайну
+                    до готового виробу.
+                </h2>
+
+            </div>
+
+
+            <div>
+
+                <p>
+
+                    Тут буде коротка інформація
+                    про майстерню, досвід,
+                    послуги та оцифрування
+                    дизайнів для машинної вишивки.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             КОНТАКТИ
+             ===================================================== -->
+
+        <section
+            class="wrap"
+            id="contacts"
+        >
+
+            <div class="contact">
+
+                <p
+                    class="eyebrow"
+                    style="color: #aaaaaa;"
+                >
+                    Замовлення
+                </p>
+
+
+                <h2>
+                    Є дизайн?
+                    Давайте перетворимо
+                    його на вишивку.
+                </h2>
+
+
+                <p>
+
+                    Тут будуть ваші контакти
+                    та способи зв'язку.
+
+                </p>
+
+
+                <!-- КНОПКИ КОНТАКТІВ -->
+
+                <div class="buttons">
+
+                    <a href="#">
+                        Telegram
+                    </a>
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="tel:+380000000000">
+                        Телефон
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <div class="wrap">
+
+            © 2026 ·
+            Портфоліо комп'ютерної вишивки
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         МОДАЛЬНЕ ВІКНО
+         ВІДКРИВАЄТЬСЯ ПРИ НАТИСКАННІ НА РОБОТУ
+         ========================================================= -->
+
+    <div
+        class="modal"
+        id="modal"
+    >
+
+        <div class="modal-box">
+
+
+            <!-- Кнопка закриття -->
+
+            <button
+                class="close"
+                aria-label="Закрити"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-grid">
+
+
+                <!-- Велике фото -->
+
+                <div class="modal-photo">
+
+                    <img
+                        id="mimg"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+
+                <!-- Інформація -->
+
+                <div class="modal-info">
+
+                    <p class="eyebrow">
+                        Робота
+                    </p>
+
+
+                    <h2 id="mtitle"></h2>
+
+
+                    <p id="mdesc"></p>
+
+
+                    <!-- ПАРАМЕТРИ ВИШИВКИ -->
+
+                    <div class="details">
+
+
+                        <!-- Розмір -->
+
+                        <div class="detail">
+
+                            <span>
+                                Розмір
+                            </span>
+
+                            <strong id="msize"></strong>
+
+                        </div>
+
+
+                        <!-- Стібки -->
+
+                        <div class="detail">
+
+                            <span>
+                                Стібки
+                            </span>
+
+                            <strong id="mstitches"></strong>
+
+                        </div>
+
+
+                        <!-- Кольори -->
+
+                        <div class="detail">
+
+                            <span>
+                                Кольори
+                            </span>
+
+                            <strong id="mcolors"></strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
+    <script>
+
+
+        /* =====================================================
+           1. ОТРИМУЄМО ЕЛЕМЕНТИ СТОРІНКИ
+           ===================================================== */
+
+        const works =
+            [...document.querySelectorAll(".work")];
+
+        const modal =
+            document.querySelector("#modal");
+
+        const modalImage =
+            document.querySelector("#mimg");
+
+        const modalTitle =
+            document.querySelector("#mtitle");
+
+        const modalDescription =
+            document.querySelector("#mdesc");
+
+        const modalSize =
+            document.querySelector("#msize");
+
+        const modalStitches =
+            document.querySelector("#mstitches");
+
+        const modalColors =
+            document.querySelector("#mcolors");
+
+
+        /* =====================================================
+           2. ФІЛЬТР КАТЕГОРІЙ
+           ===================================================== */
+
+        const filterButtons =
+            document.querySelectorAll(".filter");
+
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+
+                    /* Прибираємо active
+                       з усіх кнопок */
+
+                    filterButtons.forEach(
+                        item => {
+                            item.classList.remove(
+                                "active"
+                            );
+                        }
+                    );
+
+
+                    /* Робимо натиснуту кнопку active */
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    /* Отримуємо вибрану категорію */
+
+                    const selectedCategory =
+                        button.dataset.filter;
+
+
+                    /* Показуємо або ховаємо роботи */
+
+                    works.forEach(work => {
+
+                        const category =
+                            work.dataset.category;
+
+
+                        if (
+                            selectedCategory === "all" ||
+                            category === selectedCategory
+                        ) {
+
+                            work.style.display = "";
+
+                        } else {
+
+                            work.style.display = "none";
+
+                        }
+
+                    });
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           3. ВІДКРИТТЯ РОБОТИ
+           ===================================================== */
+
+        works.forEach(work => {
+
+            work.addEventListener(
+                "click",
+                () => {
+
+
+                    /* Фото */
+
+                    modalImage.src =
+                        work.dataset.image;
+
+
+                    modalImage.alt =
+                        work.dataset.title;
+
+
+                    /* Назва */
+
+                    modalTitle.textContent =
+                        work.dataset.title;
+
+
+                    /* Опис */
+
+                    modalDescription.textContent =
+                        work.dataset.description;
+
+
+                    /* Розмір */
+
+                    modalSize.textContent =
+                        work.dataset.size;
+
+
+                    /* Кількість стібків */
+
+                    modalStitches.textContent =
+                        work.dataset.stitches;
+
+
+                    /* Кількість кольорів */
+
+                    modalColors.textContent =
+                        work.dataset.colors;
+
+
+                    /* Відкриваємо модальне вікно */
+
+                    modal.classList.add(
+                        "open"
+                    );
+
+
+                    /* Забороняємо прокручування
+                       основної сторінки */
+
+                    document.body.style.overflow =
+                        "hidden";
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           4. ЗАКРИТТЯ МОДАЛЬНОГО ВІКНА
+           ===================================================== */
+
+        function closeModal() {
+
+            modal.classList.remove(
+                "open"
+            );
+
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+        /* Кнопка × */
+
+        document
+            .querySelector(".close")
+            .addEventListener(
+                "click",
+                closeModal
+            );
+
+
+        /* Клік по затемненому фону */
+
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* Клавіша Escape */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
