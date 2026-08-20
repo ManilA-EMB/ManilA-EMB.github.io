@@ -438,6 +438,24 @@ h2 {
 }
 
 
+.gallery-message {
+
+    grid-column: 1 / -1;
+
+    margin: 0;
+
+    padding: 28px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 14px;
+
+    color: var(--muted);
+
+    text-align: center;
+}
+
+
 .work {
 
     background: var(--card);
@@ -1627,274 +1645,13 @@ footer {
          ГАЛЕРЕЯ
          ================================================= -->
 
-    <div class="gallery">
+    <div
+        class="gallery"
+        id="gallery"
+        aria-live="polite"
+    >
+        <!-- Картки завантажуються з таблиці Supabase works через JavaScript. -->
 
-
-        <!-- =================================================
-             РОБОТА №1
-             ================================================= -->
-
-        <article
-            class="work"
-
-            data-category="logo"
-
-            data-title="Приклад логотипу"
-
-            data-description="Оцифрування логотипу для машинної вишивки."
-
-            data-size="85 × 65 мм"
-
-            data-stitches="12 327"
-
-            data-colors="4"
-
-            data-image="assets/images/work-01-after.jpg"
-
-            data-before="assets/images/work-01-before.jpg"
-
-            data-after="assets/images/work-01-after.jpg"
-        >
-
-            <div class="photo">
-
-                <img
-                    src="assets/images/work-01-after.jpg"
-                    alt="Приклад вишитого логотипу"
-
-                    onerror="
-                        this.style.display='none';
-                        this.nextElementSibling.style.display='block';
-                    "
-                >
-
-
-                <div
-                    class="placeholder"
-                    style="display: none;"
-                >
-                    Додай<br>
-                    work-01-after.jpg
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <h3>
-                    Приклад логотипу
-                </h3>
-
-                <p>
-                    85 × 65 мм ·
-                    12 327 стібків
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =================================================
-             РОБОТА №2
-             ================================================= -->
-
-        <article
-            class="work"
-
-            data-category="clothes"
-
-            data-title="Вишивка на одязі"
-
-            data-description="Готова машинна вишивка на текстилі."
-
-            data-size="100 × 80 мм"
-
-            data-stitches="18 540"
-
-            data-colors="5"
-
-            data-image="assets/images/work-02-after.jpg"
-
-            data-before="assets/images/work-02-before.jpg"
-
-            data-after="assets/images/work-02-after.jpg"
-        >
-
-            <div class="photo">
-
-                <img
-                    src="assets/images/work-02-after.jpg"
-                    alt="Вишивка на одязі"
-
-                    onerror="
-                        this.style.display='none';
-                        this.nextElementSibling.style.display='block';
-                    "
-                >
-
-
-                <div
-                    class="placeholder"
-                    style="display: none;"
-                >
-                    Додай<br>
-                    work-02-after.jpg
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <h3>
-                    Вишивка на одязі
-                </h3>
-
-                <p>
-                    100 × 80 мм ·
-                    18 540 стібків
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =================================================
-             РОБОТА №3
-             ================================================= -->
-
-        <article
-            class="work"
-
-            data-category="patch"
-
-            data-title="Шеврон"
-
-            data-description="Дизайн шеврона для машинної вишивки."
-
-            data-size="90 × 70 мм"
-
-            data-stitches="15 210"
-
-            data-colors="6"
-
-            data-image="assets/images/work-03-after.jpg"
-
-            data-before="assets/images/work-03-before.jpg"
-
-            data-after="assets/images/work-03-after.jpg"
-        >
-
-            <div class="photo">
-
-                <img
-                    src="assets/images/work-03-after.jpg"
-                    alt="Вишитий шеврон"
-
-                    onerror="
-                        this.style.display='none';
-                        this.nextElementSibling.style.display='block';
-                    "
-                >
-
-
-                <div
-                    class="placeholder"
-                    style="display: none;"
-                >
-                    Додай<br>
-                    work-03-after.jpg
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <h3>
-                    Шеврон
-                </h3>
-
-                <p>
-                    90 × 70 мм ·
-                    15 210 стібків
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =================================================
-             РОБОТА №4
-             ================================================= -->
-
-        <article
-            class="work"
-
-            data-category="text"
-
-            data-title="Вишитий напис"
-
-            data-description="Оцифрування напису для машинної вишивки."
-
-            data-size="180 × 35 мм"
-
-            data-stitches="9 840"
-
-            data-colors="2"
-
-            data-image="assets/images/work-04-after.jpg"
-
-            data-before="assets/images/work-04-before.jpg"
-
-            data-after="assets/images/work-04-after.jpg"
-        >
-
-            <div class="photo">
-
-                <img
-                    src="assets/images/work-04-after.jpg"
-                    alt="Вишитий напис"
-
-                    onerror="
-                        this.style.display='none';
-                        this.nextElementSibling.style.display='block';
-                    "
-                >
-
-
-                <div
-                    class="placeholder"
-                    style="display: none;"
-                >
-                    Додай<br>
-                    work-04-after.jpg
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <h3>
-                    Вишитий напис
-                </h3>
-
-                <p>
-                    180 × 35 мм ·
-                    9 840 стібків
-                </p>
-
-            </div>
-
-        </article>
 
 
     </div>
@@ -1972,6 +1729,10 @@ footer {
         
         <div class="buttons">
 
+            <a href="#">
+                Viber
+            </a>
+            
             <a href="#">
                 Telegram
             </a>
@@ -2184,6 +1945,8 @@ footer {
      JAVASCRIPT
      ===================================================== -->
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
 
@@ -2191,8 +1954,29 @@ footer {
    1. ЕЛЕМЕНТИ СТОРІНКИ
    ===================================================== */
 
-const works =
-    [...document.querySelectorAll(".work")];
+const SUPABASE_URL =
+    "https://puaeroooxoqvthpcnhgr.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_Wwlyyl6yJROun4n_oN81Hg_RzIMUp3Z";
+
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+const gallery =
+    document.querySelector("#gallery");
+
+
+let works = [];
+
+
+let activeFilter = "all";
 
 
 const modal =
@@ -2302,46 +2086,19 @@ filterButtons.forEach(button => {
     button.addEventListener(
         "click",
         () => {
-
-
             filterButtons.forEach(item => {
-
                 item.classList.remove(
                     "active"
                 );
-
             });
-
 
             button.classList.add(
                 "active"
             );
 
+            activeFilter = button.dataset.filter;
 
-            const selectedCategory =
-                button.dataset.filter;
-
-
-            works.forEach(work => {
-
-                const category =
-                    work.dataset.category;
-
-
-                if (
-                    selectedCategory === "all" ||
-                    category === selectedCategory
-                ) {
-
-                    work.style.display = "";
-
-                } else {
-
-                    work.style.display = "none";
-
-                }
-
-            });
+            renderWorks();
 
         }
     );
@@ -2351,99 +2108,149 @@ filterButtons.forEach(button => {
 
 
 /* =====================================================
-   4. ВІДКРИТТЯ РОБОТИ
+   4. РОБОТИ ІЗ SUPABASE
    ===================================================== */
 
-works.forEach(work => {
+function formatNumber(value) {
 
-    work.addEventListener(
-        "click",
-        () => {
+    if (value === null || value === undefined || value === "") {
+        return "—";
+    }
 
-
-            /* -----------------------------------------
-               Основна інформація
-               ----------------------------------------- */
-
-            modalTitle.textContent =
-                work.dataset.title;
+    return new Intl.NumberFormat("uk-UA").format(value);
+}
 
 
-            modalDescription.textContent =
-                work.dataset.description;
+function createMessage(message) {
+
+    const paragraph = document.createElement("p");
+
+    paragraph.className = "gallery-message";
+    paragraph.textContent = message;
+
+    return paragraph;
+}
 
 
-            modalSize.textContent =
-                work.dataset.size;
+function openWork(work) {
+
+    modalTitle.textContent = work.title || "Без назви";
+    modalDescription.textContent = work.description || "";
+    modalSize.textContent = work.size || "—";
+    modalStitches.textContent =
+        work.stitches === null || work.stitches === undefined
+            ? "—"
+            : formatNumber(work.stitches);
+    modalColors.textContent =
+        work.colors === null || work.colors === undefined
+            ? "—"
+            : formatNumber(work.colors);
+
+    /* Якщо BEFORE не завантажено, показуємо AFTER в обох половинах. */
+    const afterImage = work.after_url || work.before_url || "";
+    const beforeImage = work.before_url || afterImage;
+
+    modalBefore.src = beforeImage;
+    modalAfter.src = afterImage;
+    modalBefore.alt = `${work.title || "Робота"} — до`;
+    modalAfter.alt = `${work.title || "Робота"} — після`;
+
+    compareRange.value = 50;
+    updateCompare(50);
+
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
 
 
-            modalStitches.textContent =
-                work.dataset.stitches;
+function createWorkCard(work) {
 
+    const article = document.createElement("article");
+    const photo = document.createElement("div");
+    const image = document.createElement("img");
+    const info = document.createElement("div");
+    const title = document.createElement("h3");
+    const details = document.createElement("p");
 
-            modalColors.textContent =
-                work.dataset.colors;
+    article.className = "work";
+    article.tabIndex = 0;
+    article.setAttribute("role", "button");
+    article.setAttribute("aria-label", `Відкрити роботу: ${work.title || "без назви"}`);
 
+    photo.className = "photo";
+    image.src = work.after_url || work.before_url || "";
+    image.alt = work.title || "Робота з машинної вишивки";
+    image.addEventListener("error", () => {
+        image.remove();
+        photo.append(createMessage("Зображення недоступне"));
+    }, { once: true });
 
+    info.className = "info";
+    title.textContent = work.title || "Без назви";
+    details.textContent = `${work.size || "Розмір не вказано"} · ${formatNumber(work.stitches)} стібків`;
 
-            /* -----------------------------------------
-               BEFORE / AFTER
-               ----------------------------------------- */
+    photo.append(image);
+    info.append(title, details);
+    article.append(photo, info);
 
-            const beforeImage =
-                work.dataset.before;
-
-
-            const afterImage =
-                work.dataset.after ||
-                work.dataset.image;
-
-
-            modalBefore.src =
-                beforeImage;
-
-
-            modalAfter.src =
-                afterImage;
-
-
-            modalBefore.alt =
-                work.dataset.title +
-                " — до";
-
-
-            modalAfter.alt =
-                work.dataset.title +
-                " — після";
-
-
-
-            /* -----------------------------------------
-               Скидаємо повзунок у центр
-               ----------------------------------------- */
-
-            compareRange.value = 50;
-
-            updateCompare(50);
-
-
-
-            /* -----------------------------------------
-               Відкриваємо модальне вікно
-               ----------------------------------------- */
-
-            modal.classList.add(
-                "open"
-            );
-
-
-            document.body.style.overflow =
-                "hidden";
-
+    article.addEventListener("click", () => openWork(work));
+    article.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openWork(work);
         }
-    );
+    });
 
-});
+    return article;
+}
+
+
+function renderWorks() {
+
+    const filteredWorks =
+        activeFilter === "all"
+            ? works
+            : works.filter(work => work.category === activeFilter);
+
+    gallery.replaceChildren();
+
+    if (!filteredWorks.length) {
+        gallery.append(
+            createMessage(
+                activeFilter === "all"
+                    ? "Робіт поки немає."
+                    : "У цій категорії поки немає робіт."
+            )
+        );
+        return;
+    }
+
+    filteredWorks.forEach(work => {
+        gallery.append(createWorkCard(work));
+    });
+}
+
+
+async function loadWorks() {
+
+    gallery.replaceChildren(createMessage("Завантажуємо роботи…"));
+
+    const { data, error } = await supabaseClient
+        .from("works")
+        .select("id, title, description, category, size, stitches, colors, before_url, after_url, created_at")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Не вдалося завантажити роботи:", error);
+        gallery.replaceChildren(
+            createMessage("Не вдалося завантажити роботи. Спробуйте оновити сторінку.")
+        );
+        return;
+    }
+
+    works = data || [];
+    renderWorks();
+}
 
 
 
@@ -2550,9 +2357,17 @@ modalAfter.addEventListener(
 );
 
 
+/* =====================================================
+   7. ПЕРШЕ ЗАВАНТАЖЕННЯ ГАЛЕРЕЇ
+   ===================================================== */
+
+loadWorks();
+
+
 </script>
 
 
 </body>
 
 </html>
+
