@@ -456,6 +456,198 @@ h2 {
 }
 
 
+/* =====================================================
+   6.1. АДМІН-ПАНЕЛЬ
+   ===================================================== */
+
+.admin {
+
+    border-top: 1px solid var(--line);
+
+    display: none;
+}
+
+
+/* Адмінка відкривається лише за адресою /#admin. */
+
+.admin:target {
+
+    display: block;
+}
+
+
+.admin-intro {
+
+    max-width: 620px;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+
+.admin-card {
+
+    max-width: 760px;
+
+    margin-top: 28px;
+
+    padding: 28px;
+
+    background: var(--card);
+
+    border: 1px solid var(--line);
+
+    border-radius: 14px;
+}
+
+
+.admin-card[hidden] {
+
+    display: none;
+}
+
+
+.admin-form {
+
+    display: grid;
+
+    gap: 16px;
+}
+
+
+.admin-form-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+
+.admin-field {
+
+    display: grid;
+
+    gap: 7px;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.admin-field input,
+.admin-field textarea,
+.admin-field select {
+
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 9px;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font: inherit;
+
+    font-weight: 400;
+}
+
+
+.admin-field textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+
+.admin-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.admin-button {
+
+    padding: 11px 16px;
+
+    border: 0;
+
+    border-radius: 999px;
+
+    background: var(--text);
+
+    color: var(--bg);
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.admin-button.secondary {
+
+    border: 1px solid var(--line);
+
+    background: var(--button-bg);
+
+    color: var(--button-text);
+}
+
+
+.admin-button:disabled {
+
+    cursor: wait;
+
+    opacity: 0.6;
+}
+
+
+.admin-status {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+.admin-status.error {
+
+    color: #bd3434;
+}
+
+
+.admin-user {
+
+    margin: 0 0 20px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
 .work {
 
     background: var(--card);
@@ -1338,6 +1530,18 @@ footer {
     }
 
 
+    .admin-card {
+
+        padding: 22px;
+    }
+
+
+    .admin-form-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
 
     /* -------------------------------------------------
        ПРО НАС
@@ -1661,6 +1865,227 @@ footer {
 
 
 <!-- =====================================================
+     АДМІН-ПАНЕЛЬ
+     ===================================================== -->
+
+<section
+    class="wrap admin"
+    id="admin"
+>
+
+    <p class="eyebrow">
+        Керування портфоліо
+    </p>
+
+
+    <h2>
+        Адмін-панель
+    </h2>
+
+
+    <p class="admin-intro">
+        Увійдіть, щоб додавати нові роботи прямо з сайту.
+    </p>
+
+
+    <div
+        class="admin-card"
+        id="login-card"
+    >
+
+        <form
+            class="admin-form"
+            id="login-form"
+        >
+
+            <label class="admin-field">
+                Email
+                <input
+                    id="login-email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                >
+            </label>
+
+
+            <label class="admin-field">
+                Пароль
+                <input
+                    id="login-password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                >
+            </label>
+
+
+            <div class="admin-actions">
+                <button
+                    class="admin-button"
+                    type="submit"
+                >
+                    Увійти
+                </button>
+
+                <p
+                    class="admin-status"
+                    id="login-status"
+                    aria-live="polite"
+                ></p>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div
+        class="admin-card"
+        id="admin-panel"
+        hidden
+    >
+
+        <p
+            class="admin-user"
+            id="admin-user"
+        ></p>
+
+
+        <form
+            class="admin-form"
+            id="work-form"
+        >
+
+            <div class="admin-form-grid">
+
+                <label class="admin-field">
+                    Назва роботи
+                    <input
+                        id="work-title"
+                        type="text"
+                        required
+                    >
+                </label>
+
+
+                <label class="admin-field">
+                    Категорія
+                    <select
+                        id="work-category"
+                        required
+                    >
+                        <option value="logo">Логотипи</option>
+                        <option value="text">Написи</option>
+                        <option value="clothes">Одяг</option>
+                        <option value="patch">Шеврони</option>
+                    </select>
+                </label>
+
+            </div>
+
+
+            <label class="admin-field">
+                Опис
+                <textarea id="work-description"></textarea>
+            </label>
+
+
+            <div class="admin-form-grid">
+
+                <label class="admin-field">
+                    Розмір
+                    <input
+                        id="work-size"
+                        type="text"
+                        placeholder="Наприклад: 85 × 65 мм"
+                    >
+                </label>
+
+
+                <label class="admin-field">
+                    Кількість стібків
+                    <input
+                        id="work-stitches"
+                        type="number"
+                        min="0"
+                        step="1"
+                    >
+                </label>
+
+
+                <label class="admin-field">
+                    Кількість кольорів
+                    <input
+                        id="work-colors"
+                        type="number"
+                        min="0"
+                        step="1"
+                    >
+                </label>
+
+            </div>
+
+
+            <div class="admin-form-grid">
+
+                <label class="admin-field">
+                    Фото BEFORE
+                    <input
+                        id="work-before"
+                        type="file"
+                        accept="image/jpeg,image/webp"
+                        required
+                    >
+                </label>
+
+
+                <label class="admin-field">
+                    Фото AFTER
+                    <input
+                        id="work-after"
+                        type="file"
+                        accept="image/jpeg,image/webp"
+                        required
+                    >
+                </label>
+
+            </div>
+
+
+            <div class="admin-actions">
+                <button
+                    class="admin-button"
+                    id="save-work"
+                    type="submit"
+                >
+                    Додати роботу
+                </button>
+
+                <button
+                    class="admin-button secondary"
+                    id="logout-button"
+                    type="button"
+                >
+                    Вийти
+                </button>
+
+                <p
+                    class="admin-status"
+                    id="work-status"
+                    aria-live="polite"
+                ></p>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
      ПРО НАС
      ===================================================== -->
 
@@ -1729,10 +2154,6 @@ footer {
         
         <div class="buttons">
 
-            <a href="#">
-                Viber
-            </a>
-            
             <a href="#">
                 Telegram
             </a>
@@ -1977,6 +2398,19 @@ let works = [];
 
 
 let activeFilter = "all";
+
+
+const loginCard = document.querySelector("#login-card");
+const loginForm = document.querySelector("#login-form");
+const loginEmail = document.querySelector("#login-email");
+const loginPassword = document.querySelector("#login-password");
+const loginStatus = document.querySelector("#login-status");
+const adminPanel = document.querySelector("#admin-panel");
+const adminUser = document.querySelector("#admin-user");
+const workForm = document.querySelector("#work-form");
+const saveWorkButton = document.querySelector("#save-work");
+const logoutButton = document.querySelector("#logout-button");
+const workStatus = document.querySelector("#work-status");
 
 
 const modal =
@@ -2251,6 +2685,185 @@ async function loadWorks() {
     works = data || [];
     renderWorks();
 }
+
+
+/* =====================================================
+   5. АВТОРИЗАЦІЯ ТА ДОДАВАННЯ РОБІТ
+   ===================================================== */
+
+function setStatus(element, message = "", isError = false) {
+
+    element.textContent = message;
+    element.classList.toggle("error", isError);
+}
+
+
+function setAdminView(user) {
+
+    const isLoggedIn = Boolean(user);
+
+    loginCard.hidden = isLoggedIn;
+    adminPanel.hidden = !isLoggedIn;
+
+    if (isLoggedIn) {
+        adminUser.textContent = `Ви увійшли як ${user.email || "адміністратор"}.`;
+        setStatus(loginStatus);
+    } else {
+        workForm.reset();
+        setStatus(workStatus);
+    }
+}
+
+
+function getFileExtension(file) {
+
+    const extension = file.name.split(".").pop().toLowerCase();
+
+    if (extension === "jpg" || extension === "jpeg" || extension === "webp") {
+        return extension;
+    }
+
+    return "webp";
+}
+
+
+async function uploadImage(folder, file) {
+
+    const filePath = `${folder}/${crypto.randomUUID()}.${getFileExtension(file)}`;
+
+    const { error: uploadError } = await supabaseClient
+        .storage
+        .from("works")
+        .upload(filePath, file, {
+            cacheControl: "3600",
+            contentType: file.type,
+            upsert: false
+        });
+
+    if (uploadError) {
+        throw uploadError;
+    }
+
+    const { data } = supabaseClient
+        .storage
+        .from("works")
+        .getPublicUrl(filePath);
+
+    return {
+        path: filePath,
+        url: data.publicUrl
+    };
+}
+
+
+loginForm.addEventListener("submit", async event => {
+
+    event.preventDefault();
+
+    const submitButton = loginForm.querySelector('button[type="submit"]');
+
+    submitButton.disabled = true;
+    setStatus(loginStatus, "Входимо…");
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: loginEmail.value.trim(),
+        password: loginPassword.value
+    });
+
+    submitButton.disabled = false;
+
+    if (error) {
+        setStatus(loginStatus, "Не вдалося увійти. Перевірте email і пароль.", true);
+        return;
+    }
+
+    loginPassword.value = "";
+    setAdminView(data.user);
+});
+
+
+logoutButton.addEventListener("click", async () => {
+
+    await supabaseClient.auth.signOut();
+    setAdminView(null);
+});
+
+
+workForm.addEventListener("submit", async event => {
+
+    event.preventDefault();
+
+    const beforeFile = document.querySelector("#work-before").files[0];
+    const afterFile = document.querySelector("#work-after").files[0];
+
+    if (!beforeFile || !afterFile) {
+        setStatus(workStatus, "Оберіть обидва зображення: BEFORE та AFTER.", true);
+        return;
+    }
+
+    saveWorkButton.disabled = true;
+    setStatus(workStatus, "Завантажуємо зображення…");
+
+    let beforeUpload;
+    let afterUpload;
+
+    try {
+        beforeUpload = await uploadImage("before", beforeFile);
+        afterUpload = await uploadImage("after", afterFile);
+
+        setStatus(workStatus, "Створюємо роботу…");
+
+        const stitchesValue = document.querySelector("#work-stitches").value;
+        const colorsValue = document.querySelector("#work-colors").value;
+
+        const { error } = await supabaseClient
+            .from("works")
+            .insert({
+                title: document.querySelector("#work-title").value.trim(),
+                description: document.querySelector("#work-description").value.trim() || null,
+                category: document.querySelector("#work-category").value,
+                size: document.querySelector("#work-size").value.trim() || null,
+                stitches: stitchesValue === "" ? null : Number(stitchesValue),
+                colors: colorsValue === "" ? null : Number(colorsValue),
+                before_url: beforeUpload.url,
+                after_url: afterUpload.url
+            });
+
+        if (error) {
+            throw error;
+        }
+
+        workForm.reset();
+        setStatus(workStatus, "Готово — роботу додано до портфоліо.");
+        await loadWorks();
+    } catch (error) {
+        console.error("Не вдалося додати роботу:", error);
+
+        const uploadedPaths = [beforeUpload?.path, afterUpload?.path].filter(Boolean);
+
+        if (uploadedPaths.length) {
+            await supabaseClient.storage.from("works").remove(uploadedPaths);
+        }
+
+        setStatus(
+            workStatus,
+            "Не вдалося додати роботу. Перевірте права доступу та формат файлів.",
+            true
+        );
+    } finally {
+        saveWorkButton.disabled = false;
+    }
+});
+
+
+supabaseClient.auth.getUser().then(({ data }) => {
+    setAdminView(data.user);
+});
+
+
+supabaseClient.auth.onAuthStateChange((_event, session) => {
+    setAdminView(session?.user || null);
+});
 
 
 
