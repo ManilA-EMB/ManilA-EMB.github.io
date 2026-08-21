@@ -648,6 +648,62 @@ h2 {
 }
 
 
+.admin-works {
+
+    display: grid;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+
+.admin-work {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 14px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 10px;
+}
+
+
+.admin-work p {
+
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.admin-work-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.admin-button.danger {
+
+    background: #bd3434;
+
+    color: #ffffff;
+}
+
+
 .work {
 
     background: var(--card);
@@ -987,19 +1043,19 @@ footer {
 
     inset: 0;
 
-    width: 50%;
+    width: 100%;
 
     height: 100%;
 
     overflow: hidden;
 
+    clip-path: inset(0 50% 0 0);
+
     z-index: 2;
 }
 
 
-/* Саме BEFORE-зображення.
-   Воно має залишатися повного розміру,
-   а не стискатися разом із контейнером. */
+/* BEFORE завжди має повну ширину контейнера. Обрізається лише шар. */
 
 .compare-before img {
 
@@ -1542,6 +1598,14 @@ footer {
     }
 
 
+    .admin-work {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
 
     /* -------------------------------------------------
        ПРО НАС
@@ -1884,7 +1948,7 @@ footer {
 
 
     <p class="admin-intro">
-        Увійдіть, щоб додавати нові роботи прямо з сайту.
+        Увійдіть, щоб додавати, редагувати й видаляти роботи прямо з сайту.
     </p>
 
 
@@ -1956,6 +2020,11 @@ footer {
             class="admin-form"
             id="work-form"
         >
+
+            <input
+                id="work-id"
+                type="hidden"
+            >
 
             <div class="admin-form-grid">
 
@@ -2035,7 +2104,6 @@ footer {
                         id="work-before"
                         type="file"
                         accept="image/jpeg,image/webp"
-                        required
                     >
                 </label>
 
@@ -2046,7 +2114,6 @@ footer {
                         id="work-after"
                         type="file"
                         accept="image/jpeg,image/webp"
-                        required
                     >
                 </label>
 
@@ -2060,6 +2127,15 @@ footer {
                     type="submit"
                 >
                     Додати роботу
+                </button>
+
+                <button
+                    class="admin-button secondary"
+                    id="cancel-edit"
+                    type="button"
+                    hidden
+                >
+                    Скасувати редагування
                 </button>
 
                 <button
@@ -2078,6 +2154,12 @@ footer {
             </div>
 
         </form>
+
+
+        <div
+            class="admin-works"
+            id="admin-works"
+        ></div>
 
     </div>
 
@@ -2413,8 +2495,10 @@ const adminPanel = document.querySelector("#admin-panel");
 const adminUser = document.querySelector("#admin-user");
 const workForm = document.querySelector("#work-form");
 const saveWorkButton = document.querySelector("#save-work");
+const cancelEditButton = document.querySelector("#cancel-edit");
 const logoutButton = document.querySelector("#logout-button");
 const workStatus = document.querySelector("#work-status");
+const adminWorks = document.querySelector("#admin-works");
 
 
 const modal =
@@ -2476,16 +2560,10 @@ function updateCompare(value) {
         Number(value);
 
 
-    /*
-       Ширина BEFORE.
-       Наприклад:
-       0%   = тільки AFTER
-       50%  = половина BEFORE
-       100% = тільки BEFORE
-    */
+    /* BEFORE залишається повнорозмірним: рухається лише шторка-кліп. */
 
-    beforeContainer.style.width =
-        position + "%";
+    beforeContainer.style.clipPath =
+        `inset(0 ${100 - position}% 0 0)`;
 
 
     compareLine.style.left =
@@ -2645,6 +2723,8 @@ function createWorkCard(work) {
 
 function renderWorks() {
 
+    renderAdminWorks();
+
     const filteredWorks =
         activeFilter === "all"
             ? works
@@ -2665,6 +2745,70 @@ function renderWorks() {
 
     filteredWorks.forEach(work => {
         gallery.append(createWorkCard(work));
+    });
+
+}
+
+
+function resetWorkForm() {
+
+    workForm.reset();
+    document.querySelector("#work-id").value = "";
+    saveWorkButton.textContent = "Додати роботу";
+    cancelEditButton.hidden = true;
+}
+
+
+function startEdit(work) {
+
+    document.querySelector("#work-id").value = work.id;
+    document.querySelector("#work-title").value = work.title || "";
+    document.querySelector("#work-category").value = work.category || "logo";
+    document.querySelector("#work-description").value = work.description || "";
+    document.querySelector("#work-size").value = work.size || "";
+    document.querySelector("#work-stitches").value = work.stitches ?? "";
+    document.querySelector("#work-colors").value = work.colors ?? "";
+    saveWorkButton.textContent = "Зберегти зміни";
+    cancelEditButton.hidden = false;
+    setStatus(workStatus, "За потреби виберіть нові фото BEFORE та/або AFTER.");
+    document.querySelector("#work-title").focus();
+}
+
+
+function renderAdminWorks() {
+
+    if (!adminWorks) return;
+
+    adminWorks.replaceChildren();
+
+    works.forEach(work => {
+        const item = document.createElement("div");
+        const text = document.createElement("div");
+        const title = document.createElement("strong");
+        const info = document.createElement("p");
+        const actions = document.createElement("div");
+        const editButton = document.createElement("button");
+        const deleteButton = document.createElement("button");
+
+        item.className = "admin-work";
+        title.textContent = work.title || "Без назви";
+        info.textContent = `${work.category || "Без категорії"} · ${work.size || "розмір не вказано"}`;
+        text.append(title, info);
+
+        actions.className = "admin-work-actions";
+        editButton.className = "admin-button secondary";
+        editButton.type = "button";
+        editButton.textContent = "Редагувати";
+        editButton.addEventListener("click", () => startEdit(work));
+
+        deleteButton.className = "admin-button danger";
+        deleteButton.type = "button";
+        deleteButton.textContent = "Видалити";
+        deleteButton.addEventListener("click", () => deleteWork(work, deleteButton));
+
+        actions.append(editButton, deleteButton);
+        item.append(text, actions);
+        adminWorks.append(item);
     });
 }
 
@@ -2793,14 +2937,74 @@ logoutButton.addEventListener("click", async () => {
 });
 
 
+cancelEditButton.addEventListener("click", () => {
+    resetWorkForm();
+    setStatus(workStatus);
+});
+
+
+function storagePathFromUrl(url) {
+
+    if (!url) return null;
+
+    const marker = "/storage/v1/object/public/works/";
+    const index = url.indexOf(marker);
+
+    return index === -1
+        ? null
+        : decodeURIComponent(url.slice(index + marker.length).split("?")[0]);
+}
+
+
+async function deleteWork(work, button) {
+
+    if (!window.confirm(`Видалити роботу «${work.title || "Без назви"}»?`)) return;
+
+    button.disabled = true;
+    setStatus(workStatus, "Видаляємо роботу…");
+
+    try {
+        const { error } = await supabaseClient
+            .from("works")
+            .delete()
+            .eq("id", work.id);
+
+        if (error) throw error;
+
+        const paths = [work.before_url, work.after_url]
+            .map(storagePathFromUrl)
+            .filter(Boolean);
+
+        if (paths.length) {
+            const { error: storageError } = await supabaseClient.storage
+                .from("works")
+                .remove(paths);
+
+            if (storageError) console.warn("Не вдалося прибрати файли зі сховища:", storageError);
+        }
+
+        if (document.querySelector("#work-id").value === String(work.id)) resetWorkForm();
+
+        setStatus(workStatus, "Роботу видалено.");
+        await loadWorks();
+    } catch (error) {
+        console.error("Не вдалося видалити роботу:", error);
+        setStatus(workStatus, "Не вдалося видалити роботу. Перевірте права доступу.", true);
+    } finally {
+        button.disabled = false;
+    }
+}
+
+
 workForm.addEventListener("submit", async event => {
 
     event.preventDefault();
 
+    const workId = document.querySelector("#work-id").value;
     const beforeFile = document.querySelector("#work-before").files[0];
     const afterFile = document.querySelector("#work-after").files[0];
 
-    if (!beforeFile || !afterFile) {
+    if (!workId && (!beforeFile || !afterFile)) {
         setStatus(workStatus, "Оберіть обидва зображення: BEFORE та AFTER.", true);
         return;
     }
@@ -2812,33 +3016,49 @@ workForm.addEventListener("submit", async event => {
     let afterUpload;
 
     try {
-        beforeUpload = await uploadImage("before", beforeFile);
-        afterUpload = await uploadImage("after", afterFile);
+        if (beforeFile) beforeUpload = await uploadImage("before", beforeFile);
+        if (afterFile) afterUpload = await uploadImage("after", afterFile);
 
-        setStatus(workStatus, "Створюємо роботу…");
+        setStatus(workStatus, workId ? "Зберігаємо зміни…" : "Створюємо роботу…");
 
         const stitchesValue = document.querySelector("#work-stitches").value;
         const colorsValue = document.querySelector("#work-colors").value;
 
-        const { error } = await supabaseClient
-            .from("works")
-            .insert({
+        const values = {
                 title: document.querySelector("#work-title").value.trim(),
                 description: document.querySelector("#work-description").value.trim() || null,
                 category: document.querySelector("#work-category").value,
                 size: document.querySelector("#work-size").value.trim() || null,
                 stitches: stitchesValue === "" ? null : Number(stitchesValue),
                 colors: colorsValue === "" ? null : Number(colorsValue),
-                before_url: beforeUpload.url,
-                after_url: afterUpload.url
-            });
+        };
+
+        if (beforeUpload) values.before_url = beforeUpload.url;
+        if (afterUpload) values.after_url = afterUpload.url;
+
+        const request = workId
+            ? supabaseClient.from("works").update(values).eq("id", workId)
+            : supabaseClient.from("works").insert(values);
+
+        const { error } = await request;
 
         if (error) {
             throw error;
         }
 
-        workForm.reset();
-        setStatus(workStatus, "Готово — роботу додано до портфоліо.");
+        const previousWork = works.find(work => String(work.id) === String(workId));
+
+        if (workId && previousWork) {
+            const replacedPaths = [
+                beforeUpload && storagePathFromUrl(previousWork.before_url),
+                afterUpload && storagePathFromUrl(previousWork.after_url)
+            ].filter(Boolean);
+
+            if (replacedPaths.length) await supabaseClient.storage.from("works").remove(replacedPaths);
+        }
+
+        resetWorkForm();
+        setStatus(workStatus, workId ? "Зміни збережено." : "Готово — роботу додано до портфоліо.");
         await loadWorks();
     } catch (error) {
         console.error("Не вдалося додати роботу:", error);
@@ -2987,4 +3207,3 @@ loadWorks();
 </body>
 
 </html>
-
