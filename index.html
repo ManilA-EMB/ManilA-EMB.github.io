@@ -777,6 +777,8 @@ h2 {
 
 .photo {
 
+    position: relative;
+
     aspect-ratio: 4 / 3;
 
     background: var(--photo-bg);
@@ -786,6 +788,79 @@ h2 {
     place-items: center;
 
     overflow: hidden;
+}
+
+
+.compare-hint {
+
+    position: absolute;
+
+    left: 12px;
+    bottom: 12px;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 6px 10px 6px 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 8px;
+
+    background: rgba(20, 20, 20, 0.78);
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 0.02em;
+
+    pointer-events: none;
+
+    backdrop-filter: blur(4px);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.compare-hint-icon {
+
+    width: 22px;
+
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 50%;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.work:hover .compare-hint {
+
+    background: rgba(20, 20, 20, 0.9);
+
+    transform: translateY(-1px);
 }
 
 
@@ -1624,6 +1699,27 @@ footer {
     .work {
 
         border-radius: 12px;
+    }
+
+
+    .compare-hint {
+
+        left: 9px;
+        bottom: 9px;
+
+        padding: 5px 8px 5px 6px;
+
+        font-size: 10px;
+    }
+
+
+    .compare-hint-icon {
+
+        width: 20px;
+
+        height: 20px;
+
+        font-size: 11px;
     }
 
 
@@ -2722,6 +2818,9 @@ function createWorkCard(work) {
     const article = document.createElement("article");
     const photo = document.createElement("div");
     const image = document.createElement("img");
+    const hint = document.createElement("div");
+    const hintIcon = document.createElement("span");
+    const hintText = document.createElement("span");
     const info = document.createElement("div");
     const title = document.createElement("h3");
     const details = document.createElement("p");
@@ -2732,6 +2831,13 @@ function createWorkCard(work) {
     article.setAttribute("aria-label", `Відкрити роботу: ${work.title || "без назви"}`);
 
     photo.className = "photo";
+
+    hint.className = "compare-hint";
+    hintIcon.className = "compare-hint-icon";
+    hintIcon.textContent = "‹›";
+    hintText.textContent = "ДО / ПІСЛЯ";
+    hint.append(hintIcon, hintText);
+
     image.src = work.after_url || work.before_url || "";
     image.alt = work.title || "Робота з машинної вишивки";
     image.addEventListener("error", () => {
@@ -2743,7 +2849,7 @@ function createWorkCard(work) {
     title.textContent = work.title || "Без назви";
     details.textContent = `${work.size || "Розмір не вказано"} · ${formatNumber(work.stitches)} стібків`;
 
-    photo.append(image);
+    photo.append(image, hint);
     info.append(title, details);
     article.append(photo, info);
 
