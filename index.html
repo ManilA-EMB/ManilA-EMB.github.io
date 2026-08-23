@@ -1670,16 +1670,20 @@ footer {
 
     .filters {
 
-        gap: 6px;
+        gap: 4px;
+
+        flex-wrap: nowrap;
     }
 
 
     .filter {
 
         padding:
-            8px 13px;
+            7px 9px;
 
-        font-size: 13px;
+        font-size: 11px;
+
+        white-space: nowrap;
     }
 
 
@@ -1780,6 +1784,25 @@ footer {
     }
 
 
+    .buttons {
+
+        gap: 6px;
+
+        flex-wrap: nowrap;
+    }
+
+
+    .buttons a {
+
+        padding:
+            8px 10px;
+
+        font-size: 12px;
+
+        white-space: nowrap;
+    }
+
+
 
     /* -------------------------------------------------
        МОДАЛЬНЕ ВІКНО
@@ -1797,9 +1820,21 @@ footer {
     }
 
 
+    .close {
+
+        top: 5px;
+
+        right: 8px;
+    }
+
+
     .compare {
 
         aspect-ratio: 1 / 1;
+
+        overflow: visible;
+
+        margin-bottom: 32px;
     }
 
 
@@ -1819,12 +1854,24 @@ footer {
 
     .compare-label {
 
-        top: 10px;
+        top: auto;
+        bottom: -28px;
 
-        padding:
-            5px 8px;
+        padding: 0;
 
-        font-size: 10px;
+        background: transparent;
+        color: var(--text);
+
+        font-size: 0;
+        letter-spacing: 0.04em;
+    }
+
+
+    .compare-label::after {
+
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
     }
 
 
@@ -1834,9 +1881,21 @@ footer {
     }
 
 
+    .compare-label.before::after {
+
+        content: "До";
+    }
+
+
     .compare-label.after {
 
         right: 10px;
+    }
+
+
+    .compare-label.after::after {
+
+        content: "Після";
     }
 
 
@@ -2490,12 +2549,12 @@ footer {
             <!-- ПІДПИСИ -->
 
             <div class="compare-label before">
-                BEFORE
+                До
             </div>
 
 
             <div class="compare-label after">
-                AFTER
+                Після
             </div>
 
 
